@@ -2,7 +2,7 @@
  * @Author: zFei 
  * @Date: 2019-02-26 11:00:15 
  * @Last Modified by: zFei
- * @Last Modified time: 2019-02-26 12:00:57
+ * @Last Modified time: 2019-02-26 16:32:46
  * @function [分类业务模块]
  */
 
@@ -49,7 +49,8 @@ function addCustom(req, res, next) {
     function isHasClassify() {
         Mongo.find(batabaseName, collcationName2, {
                 'cName': params.cName,
-                'uID': { "$in": ['all', params.uID] }
+                'uID': { "$in": ['all', params.uID] },
+                // 'type': params.type
             },
             function(result) {
                 if (result.length) {
